@@ -1,0 +1,16 @@
+GET http://localhost:3030
+
+###
+GET http://localhost:3030/todo
+
+###
+POST http://localhost:3030/todo
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id":"99",
+    "task":"Repare my Car"
+}
+
+
