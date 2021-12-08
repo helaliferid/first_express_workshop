@@ -1,9 +1,13 @@
 const express=require('express');
+const bodyParser=require('body-parser');
 
 const host="http://localhost"
 const port=3030;
 
 const app=express();
+
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json());
 
 const todos=[
     {id:1,task:"read mails"},
@@ -14,6 +18,7 @@ const todos=[
 app.get('/todo',function(req,res){
     res.json(todos);
 })
+
 
 app.post('/todo',function(req,res){
     let todo=req.body;
