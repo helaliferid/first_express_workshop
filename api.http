@@ -13,4 +13,18 @@ Content-Type: application/json
     "task":"Sell Breds "
 }
 
+###
+PUT http://localhost:3030/todo
+Accept: application/json
+Content-Type: application/json
+
+{
+    "id":"3",
+    "task":"Make a Coffe"
+}
+###
+DELETE http://localhost:3030/todo/1
+Accept: application/json
+Content-Type: application/json
+
 
