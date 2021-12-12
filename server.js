@@ -17,12 +17,30 @@ app.set('views','./views');
 app.set('view engine','ejs');
 
 
+// make static serving of the public folder
+app.use(express.static('public'));
+
 app.get('/',function(req,res){
     res.render('index',{username:'Ferid HELALI'});
 });
 
 app.get('/contact',function(req,res){
     res.render('pages/contact',{username:'Ferid HELALI'});
+});
+
+app.get('/myTodos',function(req,res){
+    res.render('pages/todos');
+});
+
+app.get('/contact',function(req,res){
+    res.render('pages/contact');
+});
+
+app.get('/profile',function(req,res){
+    res.render('pages/profile');
+});
+app.get('/about',function(req,res){
+    res.render('pages/about');
 });
 
 app.use('/todo',todoRouter);
