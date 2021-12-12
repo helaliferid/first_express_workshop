@@ -7,7 +7,63 @@
 <body>
     <%- include('../layouts/navbar'); %>
     <div class="container">
-        <h1>TODOs Works</h1>
+        <!-- <pre><code>
+            <%= JSON.stringify(todos,undefined,2) %>
+        </code></pre> -->
+        <div class="row">
+            <div class="col-md-4">
+                <form id="todoForm" action="#" method="post">
+                    <div class="mb-3">
+                      <label class="form-label" for="id">Id</label>
+                      <input class="form-control" id="id" type="text" placeholder="id" data-sb-validations="required" />
+                      <div class="invalid-feedback" data-sb-feedback="id:required">Id is required.</div>
+                    </div>
+                
+                    <!-- todo Label -->
+                    <div class="mb-3">
+                      <label class="form-label" for="todoLabel">Todo</label>
+                      <input class="form-control" id="todoLabel" type="text" placeholder="type your task label here" data-sb-validations="required, email" />
+                      <div class="invalid-feedback" data-sb-feedback="todoLabel:required">Todo Label is required.</div>
+                    </div>
+                
+                    <!-- Form submissions success message -->
+                    <div class="d-none" id="submitSuccessTodo">
+                      <div class="text-center mb-3">Add Todo successful!</div>
+                    </div>
+                
+                    <!-- Form submissions error message -->
+                    <div class="d-none" id="submitErrorTodo">
+                      <div class="text-center text-danger mb-3">Error sending Todo!</div>
+                    </div>
+                
+                    <!-- Form submit button -->
+                    <div class="d-grid">
+                      <button class="btn btn-primary btn-lg" type="submit">Add Todo</button>
+                    </div>
+                
+                  </form>
+            </div>
+            <div class="col-md-4">
+                <div class="list-group">
+                    <% todos.forEach(todo=>{ %>
+                          <li class="list-group-item">
+                              <span>
+                                  <%= todo.id %>
+                                  </span>
+                                  <span>
+                                  <% if(todo.label){ %>
+                                      <%= todo.label %>
+                                   <% } %>
+                                  <% if(todo.task){ %>
+                                      <%= todo.task %>
+                                   <% } %>
+        
+                              </span>
+                          </li>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
     </div>
     <%- include('../layouts/footer'); %>
     

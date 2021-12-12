@@ -29,7 +29,8 @@ app.get('/contact',function(req,res){
 });
 
 app.get('/myTodos',function(req,res){
-    res.render('pages/todos');
+    let todos=require('./data/data.layer').getTodoArray();
+    res.render('pages/todos',{todos});
 });
 
 app.get('/contact',function(req,res){
